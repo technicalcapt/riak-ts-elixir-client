@@ -1,4 +1,5 @@
 defmodule Riak.Helper do
+
   def parse(tuple) when is_tuple(tuple) do
     {first, [second]} = tuple
     second = second |> Tuple.to_list
