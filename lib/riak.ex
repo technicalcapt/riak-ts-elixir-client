@@ -26,7 +26,6 @@ defmodule Riak do
   @doc """
   Query a table with SQL
   """
-
   def query(pid, query) when is_pid(pid) and is_binary(query) do
     :riakc_ts.query(pid, to_charlist(query))
   end
