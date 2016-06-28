@@ -22,4 +22,12 @@ defmodule Riak do
   def put(pid, table, list \\ []) when is_binary(table) and is_pid(pid) do
     :riakc_ts.put(pid, table, list)
   end
+
+  @doc """
+  Query a table with SQL
+  """
+
+  def query(pid, query) when is_pid(pid) do
+    :riakc_ts.query(pid, query)
+  end
 end
