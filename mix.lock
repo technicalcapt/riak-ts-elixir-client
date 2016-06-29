@@ -1,5 +1,6 @@
 %{"hamcrest": {:git, "https://github.com/basho/hamcrest-erlang.git", "908a24fda4a46776a5135db60ca071e3d783f9f6", [tag: "0.2.0-basho"]},
   "meck": {:git, "git://github.com/basho/meck.git", "dde759050eff19a1a80fd854d7375174b191665d", [tag: "0.8.2"]},
+  "pooler": {:hex, :pooler, "1.5.0", "0fd4be5d2976e6a2e9a1617623031758c26f200c1fca89e4a3c542747bec6371", [:rebar, :make], []},
   "protobuffs": {:git, "git://github.com/basho/erlang_protobuffs.git", "d8969a2a0312be7d9db29fcdd2fdfe287c090911", [tag: "0.8.3"]},
   "riak_pb": {:git, "git://github.com/basho/riak_pb", "33e4d4dded18c42bb8d8a821d49f998453060760", [tag: "2.1.4.0"]},
   "riakc": {:git, "https://github.com/technicalcapt/riak-erlang-client.git", "2bf4a9093c59a52f363c02d9d2ded57d7310a6bc", []}}
