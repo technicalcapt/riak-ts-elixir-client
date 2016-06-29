@@ -1,5 +1,11 @@
 defmodule Riak.Helper do
+  @moduledoc """
+    Module helper for Riak Elixir Client
+  """
 
+  @doc """
+    Parse data from riak time series to a map
+  """
   def parse(tuple) when is_tuple(tuple) do
     {first, [second]} = tuple
     second = second |> Tuple.to_list

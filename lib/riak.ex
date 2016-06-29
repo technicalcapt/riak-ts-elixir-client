@@ -13,15 +13,15 @@ defmodule Riak do
   @doc """
   Get data from server
   """
-  defpool get(pid, table, list) when is_binary(table) and is_pid(pid) do
-    :riakc_ts.get(pid, table, list, [])
+  defpool get(pid, table, keys) when is_list(keys) and is_pid(pid) do
+    :riakc_ts.get(pid, table, keys, [])
   end
 
   @doc """
   Put data to server
   """
-  defpool put(pid, table) when is_binary(table) and is_pid(pid) do
-    :riakc_ts.put(pid, table, [])
+  defpool put(pid, table, list) when is_list(list) and is_pid(pid) do
+    :riakc_ts.put(pid, table, list, [])
   end
 
   @doc """
