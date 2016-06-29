@@ -39,7 +39,7 @@ defmodule Riak.Pool do
 
   defp extract_guards({:when, _, [left, right]}), do: {left, extract_or_guards(right)}
   defp extract_guards(else_), do: {else_, []}
-  defp extract_or_guards({:when, _, [left, right]}), do: [left|extract_or_guards(right)];
+  defp extract_or_guards({:when, _, [left, right]}), do: [left|extract_or_guards(right)]
   defp extract_or_guards(term), do: [term]
 
 end
