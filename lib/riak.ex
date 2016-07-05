@@ -52,5 +52,5 @@ defmodule Riak do
 
   defp response(:ok), do: :ok
   defp response({:ok, tuple}) when is_tuple(tuple), do: tuple |> Helper.parse
-  defp response({:error, {status_code, error}}), do: {status_code, error}
+  defp response({:error, {_, reason}}), do: {:error, reason}
 end
