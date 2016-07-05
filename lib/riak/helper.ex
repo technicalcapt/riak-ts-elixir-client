@@ -6,6 +6,8 @@ defmodule Riak.Helper do
   @doc """
     Parse data from riak time series to a map
   """
+  def parse({first, second}) when length(first) == 0 and length(second) == 0,
+    do: nil
   def parse(tuple) when is_tuple(tuple) do
     {first, [second]} = tuple
     second = second |> Tuple.to_list

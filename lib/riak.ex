@@ -51,7 +51,5 @@ defmodule Riak do
 
   defp response(:ok), do: :ok
   defp response({:ok, tuple}) when is_tuple(tuple), do: tuple
-  defp response({:ok, {first, second}}) when length(first) == 0 and length(second) == 0,
-    do: nil
   defp response({:error, {status_code, error}}), do: {status_code, error}
 end
