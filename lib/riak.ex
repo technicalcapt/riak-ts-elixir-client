@@ -15,6 +15,7 @@ defmodule Riak do
   """
   defpool get(pid, table, keys) when is_list(keys) and is_pid(pid) do
     :riakc_ts.get(pid, table, keys, [])
+    |> response
   end
 
   @doc """
@@ -22,6 +23,7 @@ defmodule Riak do
   """
   defpool put(pid, table, list) when is_list(list) and is_pid(pid) do
     :riakc_ts.put(pid, table, list, [])
+    |> response
   end
 
   @doc """
@@ -29,6 +31,7 @@ defmodule Riak do
   """
   defpool query(pid, query) when is_pid(pid) and is_binary(query) do
     :riakc_ts.query(pid, to_charlist(query))
+    |> response
   end
 
   @doc """
@@ -36,6 +39,7 @@ defmodule Riak do
   """
   defpool delete(pid, table, keys) when is_pid(pid) and is_list(keys) do
     :riakc_ts.delete(pid, table, keys, [])
+    |> response
   end
 
   @doc """
@@ -44,4 +48,10 @@ defmodule Riak do
   defpool list_keys(pid, table) when is_pid(pid) do
     :riakc_ts.stream_list_keys(pid, table, [])
   end
+
+  defp response(:ok), do: :ok
+  defp response({:ok, tuple}) when is_tuple(tuple), do: tuple
+  defp response({:ok, {first, second}}) when length(first) == 0 and length(second) == 0,
+    do: nil
+  defp response({:error, {status_code, error}}), do: {status_code, error}
 end
