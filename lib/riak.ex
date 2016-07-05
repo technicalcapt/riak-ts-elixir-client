@@ -1,5 +1,6 @@
 defmodule Riak do
   import Riak.Pool
+  alias Riak.Helper
 
   @moduledoc """
   Riak Time series Elixir client
@@ -50,6 +51,6 @@ defmodule Riak do
   end
 
   defp response(:ok), do: :ok
-  defp response({:ok, tuple}) when is_tuple(tuple), do: tuple
+  defp response({:ok, tuple}) when is_tuple(tuple), do: tuple |> Helper.parse
   defp response({:error, {status_code, error}}), do: {status_code, error}
 end
