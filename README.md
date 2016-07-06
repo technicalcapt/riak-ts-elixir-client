@@ -3,9 +3,10 @@
 **A Riak Time series elixir client**
 
 ## Usage
-`Make sure your Riak TS is already started.
-Create your table with SQL create or use riak-admin to activate your table
-`
+Make sure your Riak TS is already started.
+
+Create your table with SQL create or use riak-admin to activate your table.
+
 [`Riak timeseries docs`](http://docs.basho.com/riak/ts/1.3.0/)
 
 Use Pooler to create a pool that manage connection to a Riak node
