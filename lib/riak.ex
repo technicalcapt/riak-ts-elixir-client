@@ -32,7 +32,6 @@ defmodule Riak do
   """
   defpool query(pid, query) when is_pid(pid) and is_binary(query) do
     :riakc_ts.query(pid, to_charlist(query))
-    |> response
   end
 
   @doc """
